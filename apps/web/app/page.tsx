@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
+import BridgeChart from '../components/bridge/BridgeChart';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,9 +63,11 @@ export default function Home() {
               {isMenuOpen && (
                 <div className="absolute left-0 z-10 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5">
                   <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700" role="menuitem">
                       Report
                     </a>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a href="#" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700" role="menuitem">
                       AI
                     </a>
@@ -71,18 +75,66 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <div className="flex-grow" /> {/* This empty div will push the next element to the right */}
           </div>
         </header>
 
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto p-8">
           <div className="space-y-8">
+            {/* Date Selection Section */}
+            <div className="bg-custom-sidebar rounded-lg shadow-lg p-4">
+              <div className="flex items-center space-x-4">
+                <div>
+                  <h3 className="text-lg font-medium text-gray-300">Results for Selected Date</h3>
+                  <p className="text-sm text-gray-400">View test results, API checks, and Playwright reports</p>
+                </div>
+                <div className="relative">
+                  <button
+                    type="button"
+                    className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-gray-600 transition-colors"
+                    onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span>{format(selectedDate, 'yyyy/MM/dd')}</span>
+                  </button>
+                  {isCalendarOpen && (
+                    <div className="absolute left-0 mt-2 z-50">
+                      <div className="bg-gray-800 rounded-lg shadow-lg p-1 border border-gray-700">
+                        <DatePicker
+                          selected={selectedDate}
+                          onChange={(date: Date | null) => {
+                            if (date) {
+                              setSelectedDate(date);
+                              setIsCalendarOpen(false);
+                            }
+                          }}
+                          inline
+                          wrapperClassName="bg-gray-800"
+                          calendarClassName="bg-gray-800 border-gray-700 text-gray-300"
+                          dayClassName={(date) =>
+                            date && date.getTime() === selectedDate.getTime()
+                              ? 'bg-blue-500 text-white hover:bg-blue-600'
+                              : 'text-gray-300 hover:bg-gray-700'
+                          }
+                        />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
             {/* Chart placeholder */}
             <div className="bg-custom-sidebar rounded-lg shadow-lg p-6">
               <h2 className="text-2xl font-semibold text-white mb-4">Tokamak Bridge Result</h2>
-              <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Chart will be displayed here</p>
+              <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg p-4">
+                <BridgeChart date={format(selectedDate, 'yyyyMMdd')} />
               </div>
             </div>
 
@@ -147,39 +199,11 @@ export default function Home() {
 
             {/* Playwright Date-based HTML Link section */}
             <div className="bg-custom-sidebar p-6 rounded-lg shadow-lg">
-              <div className="flex items-center mb-4">
-                <h3 className="text-xl font-semibold text-white mr-4">Playwright Date-based HTML Link</h3>
-                <div className="relative">
-                  <button
-                    type="button"
-                    className="bg-gray-700 text-white px-3 py-1 rounded-md flex items-center text-sm"
-                    onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-                  >
-                    {selectedDate.toLocaleDateString()}
-                    <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                  {isCalendarOpen && (
-                    <div className="absolute right-0 mt-2 z-10">
-                      <DatePicker
-                        selected={selectedDate}
-                        onChange={(date: any) => {
-                          setSelectedDate(date);
-                          setIsCalendarOpen(false);
-                        }}
-                        inline
-                      />
-                    </div>
-                  )}
-                </div>
-              </div>
+              <h3 className="text-xl font-semibold text-white mb-4">Playwright Date-based HTML Link</h3>
               <div className="p-6 bg-gray-800 rounded-lg flex items-center justify-center">
-                <p className="text-gray-400">Playwright result will be displayed here</p>
+                <p className="text-gray-400">
+                  Playwright result for {format(selectedDate, 'yyyy/MM/dd')} will be displayed here
+                </p>
               </div>
             </div>
           </div>

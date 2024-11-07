@@ -1,0 +1,30 @@
+{"testType":"swapTest","network":"Titan","fromToken":"TON","toToken":"ETH","duration":0.983,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:44:57"}
+{"testType":"swapTest","network":"Titan","fromToken":"TON","toToken":"WETH","duration":0.819,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:45:26"}
+{"testType":"swapTest","network":"Titan","fromToken":"TON","toToken":"USDC","duration":0.833,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:45:55"}
+{"testType":"swapTest","network":"Titan","fromToken":"TON","toToken":"USDT","duration":0.827,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:46:25"}
+{"testType":"swapTest","network":"Titan","fromToken":"TON","toToken":"TOS","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:47:53"}
+{"testType":"swapTest","network":"Titan","fromToken":"ETH","toToken":"TON","duration":2.864,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:48:27"}
+{"testType":"swapTest","network":"Titan","fromToken":"ETH","toToken":"WETH","duration":0.007,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:48:55"}
+{"testType":"swapTest","network":"Titan","fromToken":"ETH","toToken":"USDC","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:50:23"}
+{"testType":"swapTest","network":"Titan","fromToken":"ETH","toToken":"USDT","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:51:54"}
+{"testType":"swapTest","network":"Titan","fromToken":"ETH","toToken":"TOS","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:53:24"}
+{"testType":"swapTest","network":"Titan","fromToken":"WETH","toToken":"TON","duration":2.827,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:53:58"}
+{"testType":"swapTest","network":"Titan","fromToken":"WETH","toToken":"ETH","duration":0.007,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:54:26"}
+{"testType":"swapTest","network":"Titan","fromToken":"WETH","toToken":"USDC","duration":12.898,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:55:07"}
+{"testType":"swapTest","network":"Titan","fromToken":"WETH","toToken":"USDT","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:56:36"}
+{"testType":"swapTest","network":"Titan","fromToken":"WETH","toToken":"TOS","duration":0,"gasCostText":"NA","detailsVisible":false,"error":"Loading spinner was not detached after 60 seconds","timestamp":"2024-10-23 06:58:06"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDC","toToken":"TON","duration":1.342,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:58:39"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDC","toToken":"ETH","duration":0.053,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:59:08"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDC","toToken":"WETH","duration":0.017,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 06:59:37"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDC","toToken":"USDT","duration":0.007,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:00:06"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDC","toToken":"TOS","duration":0.006,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:00:34"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDT","toToken":"TON","duration":0.012,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:01:03"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDT","toToken":"ETH","duration":0.028,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:01:31"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDT","toToken":"WETH","duration":0.006,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:02:00"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDT","toToken":"USDC","duration":0.207,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:02:29"}
+{"testType":"swapTest","network":"Titan","fromToken":"USDT","toToken":"TOS","duration":0.039,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:02:58"}
+{"testType":"swapTest","network":"Titan","fromToken":"TOS","toToken":"TON","duration":0.008,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:03:27"}
+{"testType":"swapTest","network":"Titan","fromToken":"TOS","toToken":"ETH","duration":0.006,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:03:55"}
+{"testType":"swapTest","network":"Titan","fromToken":"TOS","toToken":"WETH","duration":0.016,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:04:24"}
+{"testType":"swapTest","network":"Titan","fromToken":"TOS","toToken":"USDC","duration":0.133,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:04:53"}
+{"testType":"swapTest","network":"Titan","fromToken":"TOS","toToken":"USDT","duration":0.006,"gasCostText":"NA","detailsVisible":true,"error":"None","timestamp":"2024-10-23 07:05:21"}
