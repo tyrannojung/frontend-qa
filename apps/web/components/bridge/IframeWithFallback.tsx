@@ -8,11 +8,10 @@ import React from 'react';
 //   return format(date, 'yyyyMMdd') === format(yesterday, 'yyyyMMdd');
 // };
 
-const isNovember6 = (date: Date): boolean => {
-  const targetDate = new Date('2023-11-14');
-  return format(date, 'yyyyMMdd') !== format(targetDate, 'yyyyMMdd');
+const isNovember14 = (date: Date): boolean => {
+  const targetDate = new Date('2024-11-14');
+  return format(date, 'yyyyMMdd') === format(targetDate, 'yyyyMMdd');
 };
-
 interface IframeWithFallbackProps {
   src: string;
   network: string;
@@ -20,7 +19,7 @@ interface IframeWithFallbackProps {
 }
 
 function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JSX.Element {
-  const showReport = isNovember6(date);
+  const showReport = isNovember14(date);
 
   if (!showReport) {
     return (
@@ -37,7 +36,7 @@ function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JS
         <p className="text-gray-500 text-sm text-center">
           HTML reports are only available for yesterday&apos;s tests.
           <br />
-          Please select yesterday&apos;s date to view the report. ({src})
+          Please select yesterday&apos;s date to view the report.
         </p>
       </div>
     );
