@@ -10,7 +10,7 @@ import IframeWithFallback from '../components/bridge/IframeWithFallback';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(new Date('2024-11-06'));
+  const [selectedDate, setSelectedDate] = useState(new Date('2024-11-14'));
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedNetwork, setSelectedNetwork] = useState('mainnet');
   const [iframeKey, setIframeKey] = useState(0);

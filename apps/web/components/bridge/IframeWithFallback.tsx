@@ -2,10 +2,15 @@
 import { format } from 'date-fns';
 import React from 'react';
 
-const isYesterday = (date: Date): boolean => {
-  const yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
-  return format(date, 'yyyyMMdd') === format(yesterday, 'yyyyMMdd');
+// const isYesterday = (date: Date): boolean => {
+//   const yesterday = new Date();
+//   yesterday.setDate(yesterday.getDate() - 1);
+//   return format(date, 'yyyyMMdd') === format(yesterday, 'yyyyMMdd');
+// };
+
+const isNovember6 = (date: Date): boolean => {
+  const targetDate = new Date('2023-11-14');
+  return format(date, 'yyyyMMdd') !== format(targetDate, 'yyyyMMdd');
 };
 
 interface IframeWithFallbackProps {
@@ -15,7 +20,7 @@ interface IframeWithFallbackProps {
 }
 
 function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JSX.Element {
-  const showReport = isYesterday(date);
+  const showReport = isNovember6(date);
 
   if (!showReport) {
     return (
@@ -32,7 +37,7 @@ function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JS
         <p className="text-gray-500 text-sm text-center">
           HTML reports are only available for yesterday&apos;s tests.
           <br />
-          Please select yesterday&apos;s date to view the report.
+          Please select yesterday&apos;s date to view the report. ({src})
         </p>
       </div>
     );
