@@ -1,15 +1,15 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
+import Sidebar from '@/components/layout/sidebar/Sidebar';
+import HeaderCustom from '@/components/layout/header/Header';
 import BridgeChart from '../components/bridge/BridgeChart';
 import IframeWithFallback from '../components/bridge/IframeWithFallback';
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date('2024-11-14'));
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedNetwork, setSelectedNetwork] = useState('mainnet');
@@ -18,68 +18,12 @@ export default function Home() {
   return (
     <div className="flex h-screen bg-custom-background text-gray-300">
       {/* Sidebar */}
-      <aside className="w-64 bg-custom-sidebar text-gray-300">
-        <div className="p-4">
-          <Image src="/icons/logo.svg" alt="TOONchat Logo" width={150} height={40} />
-        </div>
-        <nav className="mt-6">
-          <ul className="space-y-2">
-            <li className="px-4 py-2 text-green-400 font-semibold">TokamakNetwork</li>
-            <li className="border-t border-gray-700 my-2 opacity-30" />
-            <li className="px-4 py-2 text-gray-400 font-medium">Project</li>
-            <li className="px-4 py-2 bg-gray-800 text-white rounded-md cursor-pointer transition duration-150 ease-in-out">
-              Tokamak Bridge
-            </li>
-            <li className="px-4 py-2 hover:bg-gray-800 rounded-md cursor-pointer transition duration-150 ease-in-out">
-              Simple staking
-            </li>
-            <li className="px-4 py-2 hover:bg-gray-800 rounded-md cursor-pointer transition duration-150 ease-in-out">
-              Tokamak Webpage
-            </li>
-            <li className="px-4 py-2 hover:bg-gray-800 rounded-md cursor-pointer transition duration-150 ease-in-out">
-              Gem-NFT
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <header className="bg-custom-background border-b border-gray-700">
-          <div className="py-4 px-6 flex justify-between items-center">
-            <div className="relative">
-              <button
-                type="button"
-                className="text-lg font-bold text-white flex items-center hover:text-gray-300 transition duration-150 ease-in-out"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                Report
-                <svg className="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path
-                    fillRule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-              {isMenuOpen && (
-                <div className="absolute left-0 z-10 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5">
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700" role="menuitem">
-                      Report
-                    </a>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a href="#" className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700" role="menuitem">
-                      AI
-                    </a>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </header>
+        <HeaderCustom />
 
         {/* Page Content */}
         <main className="flex-1 overflow-y-auto p-8">
