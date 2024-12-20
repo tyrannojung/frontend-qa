@@ -7,17 +7,11 @@ import { format } from 'date-fns';
 import Sidebar from '@/components/layout/sidebar/Sidebar';
 import HeaderCustom from '@/components/layout/header/Header';
 import { SERVICES, DEFAULT_SERVICE, ServiceType } from '@/constants/services';
-import BridgeApiCheck from '@/components/bridge/BridgeApiCheck';
-import BridgePlaywright from '@/components/bridge/BridgePlaywright';
-import BridgeChartContent from '@/components/bridge/BridgeChartContent';
-
-import GemApiCheck from '@/components/gem/GemApiCheck';
-import GemChartContent from '@/components/gem/GemChartContent';
-import GemPlaywright from '@/components/gem/GemPlaywright';
-
-// import GemApiCheck from '@/components/gem/ApiCheck';
+import { Bridge, Gem } from '@/components/project';
 
 export default function Home() {
+  const { BridgeChartContent, BridgeApiCheck, BridgePlaywright } = Bridge;
+  const { GemChartContent, GemApiCheck, GemPlaywright } = Gem;
   const [selectedService, setSelectedService] = useState<ServiceType>(DEFAULT_SERVICE);
   const [selectedDate, setSelectedDate] = useState(new Date('2024-11-14'));
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -26,27 +20,30 @@ export default function Home() {
   const serviceComponents: Record<
     ServiceType,
     {
+      projectName: string;
       chartContent: React.ReactNode;
       apiCheck: React.ReactNode;
       playwright: React.ReactNode;
     }
   > = {
-    [SERVICES.GEM_STON]: {
-      chartContent: <GemChartContent selectedDate={selectedDate} />,
-      apiCheck: <GemApiCheck />,
+    [SERVICES.TOKAMAK_BRIDGE]: {
+      projectName: 'Tokamak Bridge',
+      chartContent: <BridgeChartContent selectedDate={selectedDate} />,
+      apiCheck: <BridgeApiCheck />,
       playwright: (
-        <GemPlaywright
+        <BridgePlaywright
           selectedDate={selectedDate}
           selectedNetwork={selectedNetwork}
           onNetworkChange={setSelectedNetwork}
         />
       ),
     },
-    [SERVICES.TOKAMAK_BRIDGE]: {
-      chartContent: <BridgeChartContent selectedDate={selectedDate} />,
-      apiCheck: <BridgeApiCheck />,
+    [SERVICES.GEM_STON]: {
+      projectName: 'Gem Stone',
+      chartContent: <GemChartContent selectedDate={selectedDate} />,
+      apiCheck: <GemApiCheck />,
       playwright: (
-        <BridgePlaywright
+        <GemPlaywright
           selectedDate={selectedDate}
           selectedNetwork={selectedNetwork}
           onNetworkChange={setSelectedNetwork}
@@ -121,7 +118,7 @@ export default function Home() {
             </div>
             {/* Chart placeholder */}
             <div className="bg-custom-sidebar rounded-lg shadow-lg p-6">
-              <h2 className="text-2xl font-semibold text-white mb-4">Tokamak Bridge Result</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">{currentService.projectName} Result</h2>
               <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg p-4">{currentService.chartContent}</div>
             </div>
             {/* API Check section */}
@@ -129,9 +126,7 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-4 text-white">API Check</h3>
               <div className="border border-gray-700 rounded p-6">{currentService.apiCheck}</div>
             </div>
-
             {/* Playwright Date-based HTML Link section */}
-            {/** 여기에다가 */}
             <div className="bg-custom-sidebar p-6 rounded-lg shadow-lg">{currentService.playwright}</div>
           </div>
         </main>

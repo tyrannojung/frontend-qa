@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { format } from 'date-fns';
-import type { BridgeTest } from '../../types/bridge/bridge';
+import type { BridgeTest } from '../../../types/bridge/bridge';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 

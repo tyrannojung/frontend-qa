@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { format } from 'date-fns';
-import IframeWithFallback from '../common/IframeWithFallback';
+import IframeWithFallback from '../../common/IframeWithFallback';
 
 type BridgePlaywrightProps = {
   selectedDate: Date;
