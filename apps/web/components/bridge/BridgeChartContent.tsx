@@ -3,15 +3,17 @@
 import { useEffect, useState } from 'react';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { format } from 'date-fns';
 import type { BridgeTest } from '../../types/bridge/bridge';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface BridgeChartProps {
-  date: string; // YYYYMMDD format
+  selectedDate: Date; // YYYYMMDD format
 }
 
-export default function BridgeChart({ date }: BridgeChartProps) {
+export default function BridgeChartContent({ selectedDate }: BridgeChartProps) {
+  const date = format(selectedDate, 'yyyyMMdd');
   const [chartData, setChartData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
