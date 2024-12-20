@@ -125,11 +125,14 @@ export default function Home() {
               <div className="aspect-w-16 aspect-h-9 bg-gray-800 rounded-lg p-4">{currentService.chartContent}</div>
             </div>
             {/* API Check section */}
-            {/** 여기에다가 */}
-            {currentService.apiCheck}
+            <div className="bg-custom-sidebar p-6 rounded-lg shadow-lg">
+              <h3 className="text-xl font-semibold mb-4 text-white">API Check</h3>
+              <div className="border border-gray-700 rounded p-6">{currentService.apiCheck}</div>
+            </div>
+
             {/* Playwright Date-based HTML Link section */}
             {/** 여기에다가 */}
-            {currentService.playwright}
+            <div className="bg-custom-sidebar p-6 rounded-lg shadow-lg">{currentService.playwright}</div>
           </div>
         </main>
       </div>

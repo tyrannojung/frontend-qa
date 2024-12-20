@@ -12,7 +12,7 @@ export default function GemPlaywright({ selectedDate, selectedNetwork, onNetwork
   const [iframeKey, setIframeKey] = useState(0);
 
   return (
-    <div className="bg-custom-sidebar p-6 rounded-lg shadow-lg">
+    <div>
       {/* Title and Refresh Button */}
       <div className="flex items-center gap-3 mb-6">
         <h3 className="text-xl font-semibold text-white">Playwright Date-based HTML Link</h3>
