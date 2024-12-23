@@ -13,7 +13,7 @@ export default function Home() {
   const { BridgeChartContent, BridgeApiCheck, BridgePlaywright } = Bridge;
   const { GemChartContent, GemApiCheck, GemPlaywright } = Gem;
   const [selectedService, setSelectedService] = useState<ServiceType>(DEFAULT_SERVICE);
-  const [selectedDate, setSelectedDate] = useState(new Date('2024-11-14'));
+  const [selectedDate, setSelectedDate] = useState(new Date('2024-12-24'));
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedNetwork, setSelectedNetwork] = useState('mainnet');
 
@@ -77,7 +77,8 @@ export default function Home() {
                 <div className="relative">
                   <button
                     type="button"
-                    className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-gray-600 transition-colors"
+                    className="bg-gray-700 text-white px-4 py-2 rounded-md flex items-center space-x-2 opacity-50 cursor-not-allowed"
+                    disabled
                     onClick={() => setIsCalendarOpen(!isCalendarOpen)}
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,6 +103,7 @@ export default function Home() {
                             }
                           }}
                           inline
+                          disabled
                           wrapperClassName="bg-gray-800"
                           calendarClassName="bg-gray-800 border-gray-700 text-gray-300"
                           dayClassName={(date) =>

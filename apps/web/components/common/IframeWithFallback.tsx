@@ -8,8 +8,8 @@ import React from 'react';
 //   return format(date, 'yyyyMMdd') === format(yesterday, 'yyyyMMdd');
 // };
 
-const isNovember14 = (date: Date): boolean => {
-  const targetDate = new Date('2024-11-14');
+const isDecember24 = (date: Date): boolean => {
+  const targetDate = new Date('2024-12-24');
   return format(date, 'yyyyMMdd') === format(targetDate, 'yyyyMMdd');
 };
 interface IframeWithFallbackProps {
@@ -19,7 +19,7 @@ interface IframeWithFallbackProps {
 }
 
 function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JSX.Element {
-  const showReport = isNovember14(date);
+  const showReport = isDecember24(date);
 
   if (!showReport) {
     return (
