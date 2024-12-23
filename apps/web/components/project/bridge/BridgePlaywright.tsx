@@ -4,11 +4,11 @@ import IframeWithFallback from '../../common/IframeWithFallback';
 
 type BridgePlaywrightProps = {
   selectedDate: Date;
-  selectedNetwork: string;
-  onNetworkChange: (network: string) => void;
+  selectedContent: string;
+  onContentChange: (network: string) => void;
 };
 
-export default function BridgePlaywright({ selectedDate, selectedNetwork, onNetworkChange }: BridgePlaywrightProps) {
+export default function BridgePlaywright({ selectedDate, selectedContent, onContentChange }: BridgePlaywrightProps) {
   const [iframeKey, setIframeKey] = useState(0);
 
   return (
@@ -20,7 +20,7 @@ export default function BridgePlaywright({ selectedDate, selectedNetwork, onNetw
           type="button"
           aria-label="Refresh Playwright Report"
           onClick={() => {
-            onNetworkChange('mainnet');
+            onContentChange('mainnet');
             setIframeKey((prev) => prev + 1);
           }}
           className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors duration-200"
@@ -42,10 +42,10 @@ export default function BridgePlaywright({ selectedDate, selectedNetwork, onNetw
           <button
             key={network}
             type="button"
-            onClick={() => onNetworkChange(network)}
+            onClick={() => onContentChange(network)}
             className={`px-4 py-2 rounded-md transition-all duration-200 ease-in-out
               ${
-                selectedNetwork === network
+                selectedContent === network
                   ? 'bg-blue-500 text-white shadow-lg'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
@@ -58,8 +58,8 @@ export default function BridgePlaywright({ selectedDate, selectedNetwork, onNetw
       <div className="p-6 bg-white rounded-lg">
         <IframeWithFallback
           key={iframeKey}
-          src={`/data/bridge/${format(selectedDate, 'yyyyMMdd')}/html/${selectedNetwork}/index.html`}
-          network={selectedNetwork}
+          src={`/data/bridge/${format(selectedDate, 'yyyyMMdd')}/html/${selectedContent}/index.html`}
+          content={selectedContent}
           date={selectedDate}
         />
       </div>

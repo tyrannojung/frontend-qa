@@ -14,11 +14,11 @@ const isDecember24 = (date: Date): boolean => {
 };
 interface IframeWithFallbackProps {
   src: string;
-  network: string;
+  content: string;
   date: Date;
 }
 
-function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JSX.Element {
+function IframeWithFallback({ src, content, date }: IframeWithFallbackProps): JSX.Element {
   const showReport = isDecember24(date);
 
   if (!showReport) {
@@ -51,7 +51,7 @@ function IframeWithFallback({ src, network, date }: IframeWithFallbackProps): JS
         color: '#000',
       }}
       frameBorder="0"
-      title={`Playwright Test Results - ${network}`}
+      title={`Playwright Test Results - ${content}`}
     />
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
@@ -12,10 +12,15 @@ import { Bridge, Gem } from '@/components/project';
 export default function Home() {
   const { BridgeChartContent, BridgeApiCheck, BridgePlaywright } = Bridge;
   const { GemChartContent, GemApiCheck, GemPlaywright } = Gem;
-  const [selectedService, setSelectedService] = useState<ServiceType>(DEFAULT_SERVICE);
+
   const [selectedDate, setSelectedDate] = useState(new Date('2024-12-24'));
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [selectedNetwork, setSelectedNetwork] = useState('mainnet');
+  const [selectedService, setSelectedService] = useState<ServiceType>(DEFAULT_SERVICE);
+  const [selectedContent, setSelectedContent] = useState('mainnet');
+
+  useEffect(() => {
+    setSelectedContent(selectedService === SERVICES.GEM_STON ? 'pack' : 'mainnet');
+  }, [selectedService]);
 
   const serviceComponents: Record<
     ServiceType,
@@ -33,20 +38,20 @@ export default function Home() {
       playwright: (
         <BridgePlaywright
           selectedDate={selectedDate}
-          selectedNetwork={selectedNetwork}
-          onNetworkChange={setSelectedNetwork}
+          selectedContent={selectedContent}
+          onContentChange={setSelectedContent}
         />
       ),
     },
     [SERVICES.GEM_STON]: {
       projectName: 'Gem Stone',
-      chartContent: <GemChartContent selectedDate={selectedDate} />,
+      chartContent: <GemChartContent />,
       apiCheck: <GemApiCheck />,
       playwright: (
         <GemPlaywright
           selectedDate={selectedDate}
-          selectedNetwork={selectedNetwork}
-          onNetworkChange={setSelectedNetwork}
+          selectedContent={selectedContent}
+          onContentChange={setSelectedContent}
         />
       ),
     },
