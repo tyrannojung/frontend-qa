@@ -79,7 +79,6 @@ export default function GemApiCheck() {
 
   useEffect(() => {
     const checkServices = async () => {
-      // Gem 사이트 접근성 체크
       if (process.env.NEXT_PUBLIC_GEM_PAGE) {
         console.log(process.env.NEXT_PUBLIC_GEM_PAGE);
         const gemResult = await checkSiteAccessibility(process.env.NEXT_PUBLIC_GEM_PAGE);

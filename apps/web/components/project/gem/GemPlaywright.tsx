@@ -20,7 +20,7 @@ export default function GemPlaywright({ selectedDate, selectedContent, onContent
           type="button"
           aria-label="Refresh Playwright Report"
           onClick={() => {
-            onContentChange('mainnet');
+            onContentChange('pack');
             setIframeKey((prev) => prev + 1);
           }}
           className="p-2 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors duration-200"

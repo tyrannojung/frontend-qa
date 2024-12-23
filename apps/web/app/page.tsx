@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 import Sidebar from '@/components/layout/sidebar/Sidebar';
 import HeaderCustom from '@/components/layout/header/Header';
 import { SERVICES, DEFAULT_SERVICE, ServiceType } from '@/constants/services';
@@ -13,8 +13,8 @@ export default function Home() {
   const { BridgeChartContent, BridgeApiCheck, BridgePlaywright } = Bridge;
   const { GemChartContent, GemApiCheck, GemPlaywright } = Gem;
 
-  const [selectedDate, setSelectedDate] = useState(new Date('2024-12-24'));
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [selectedDate] = useState(new Date('2024-12-24'));
+  // const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<ServiceType>(DEFAULT_SERVICE);
   const [selectedContent, setSelectedContent] = useState('mainnet');
 
@@ -73,7 +73,7 @@ export default function Home() {
         <main className="flex-1 overflow-y-auto p-8">
           <div className="space-y-8">
             {/* Date Selection Section */}
-            <div className="bg-custom-sidebar rounded-lg shadow-lg p-4">
+            {/* <div className="bg-custom-sidebar rounded-lg shadow-lg p-4">
               <div className="flex items-center space-x-4">
                 <div>
                   <h3 className="text-lg font-medium text-gray-300">Results for Selected Date</h3>
@@ -122,7 +122,7 @@ export default function Home() {
                   )}
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* Chart placeholder */}
             <div className="bg-custom-sidebar rounded-lg shadow-lg p-6">
               <h2 className="text-2xl font-semibold text-white mb-4">{currentService.projectName} Result</h2>
